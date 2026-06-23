@@ -1,11 +1,17 @@
- name: hello world
+name: Hello World
 
- on:
-     push:
+on:
+  push:
+    branches:
+      - master
 
-  jobs:
-    my-job:
-      runs-on: ubuntu-latest
-      steps:
-        -name: my-step
-         run: echo "Hello World!"
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print Hello World
+        run: echo "Hello World"
